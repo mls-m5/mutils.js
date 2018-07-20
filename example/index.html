@@ -1,19 +1,31 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Require-test</title>
+	<title>Complete mutils-test</title>
 	<meta charset="utf-8">
 </head>
 <body>
 	<script src="../require.js"></script>
+	<div id="output">Loading...</div>
+	<div id="output2">Loading...</div>
+	<script id="messagetemplate" type="text/template">
+		<h1>{title}</h1>
+		<div>{message}</div>
+	</script>
+	<script id="deeptemplate" type="text/template">
+		<h1>{message.title}</h1>
+		<div>{message.content}</div>
+	</script>
 	<script>
 		console.log("staring scripts");
 		// require("main.js", function() {
 		// 	console.log("success-function");
 		// });
 
-		require(["main.js", "other.js"], function() {
+		require(["main.js", "../get.js", "../utils.js", "../mustache.js"], function() {
 			console.log("Both loaded");
+
+			init();
 		});
 		console.log("after require function");
 	</script>
