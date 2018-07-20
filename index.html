@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Require-test</title>
+	<meta charset="utf-8">
+</head>
+<body>
+	<script src="require.js"></script>
+	<script>
+		console.log("staring scripts");
+		// require("main.js", function() {
+		// 	console.log("success-function");
+		// });
+
+		require(["main.js", "other.js"], function() {
+			console.log("Both loaded");
+		});
+		console.log("after require function");
+	</script>
+</body>
+</html>
+
