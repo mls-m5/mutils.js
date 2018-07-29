@@ -2,11 +2,10 @@
 function require(src, success) {
 	
 	if (Array.isArray(src)) {
-		let started = 0;
+		let started = src.length;
 
 		for (let i in src) {
 			let s = src[i];
-			++started;
 			require(s, function() {
 				--started;
 				if (started == 0) {
