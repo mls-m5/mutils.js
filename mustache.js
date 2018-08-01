@@ -10,8 +10,15 @@
 //       return result;
 // }
 
-function mustache(template, data) {
-	var first = template.split("{");
+function mustache(template, data, starttag, endtag) {
+	if (typeof starttag === "undefined") {
+		starttag = "{";
+	}
+	if (typeof endtag === "undefined") {
+		endtag = "}";
+	}
+
+	var first = template.split(starttag);
 	var ret = first[0];
 
 	function evaluate(expression) {
@@ -30,7 +37,7 @@ function mustache(template, data) {
 	}
 
 	for (let i = 1; i < first.length; ++i) {
-		var split = first[i].split("}");
+		var split = first[i].split(endtag);
 		var expression = split[0];
 		var text = split[1];
 		ret += evaluate(expression) + text;
