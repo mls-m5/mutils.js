@@ -18,12 +18,9 @@
 	</script>
 	<script>
 		console.log("staring scripts");
-		// require("main.js", function() {
-		// 	console.log("success-function");
-		// });
 
 		require(["main.js", "../get.js", "../utils.js", "../mustache.js"], function() {
-			console.log("Both loaded");
+			console.log("js loaded...");
 
 			init();
 		});
